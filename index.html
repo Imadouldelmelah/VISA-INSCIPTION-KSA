@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <title>Religion and Sect</title>
+        <script>
+          function updateSectVisibility() {
+            var religionSelect = document.getElementById("religion");
+            var sectSelect = document.getElementById("sect");
+      
+            // Récupérer la valeur sélectionnée dans la liste de religion
+            var selectedReligion = religionSelect.value;
+      
+            // Afficher ou masquer la liste de secte en fonction de la religion sélectionnée
+            sectSelect.style.display = (selectedReligion === "Islam") ? "block" : "none";
+          }
+      
+          function updateTravelOptions() {
+            var religionSelect = document.getElementById("religion");
+            var purposeSelect = document.getElementById("purpose-of-travel");
+      
+            // Récupérer la valeur sélectionnée dans la liste de religion
+            var selectedReligion = religionSelect.value;
+      
+            // Récupérer la valeur sélectionnée dans la liste du but du voyage
+            var selectedPurpose = purposeSelect.value;
+      
+            // Réinitialiser les options pour permettre à l'utilisateur de sélectionner n'importe quoi
+            purposeSelect.options.length = 0;
+      
+            // Ajouter les options en fonction de la religion sélectionnée
+            if (selectedReligion === "Islam") {
+              addOption("Work", "Work(عمل)");
+              addOption("Transit", "Transit(مرور)");
+              addOption("Visit", "Visit(زيارة)");
+      
+              // Umrah and Hajj are restricted options for Islam
+              if (selectedPurpose === "Umrah" || selectedPurpose === "Hajj") {
+                purposeSelect.value = ""; // Réinitialiser la sélection si Umrah ou Hajj sont sélectionnés
+              } else {
+                addOption("Umrah", "Umrah(عمره)");
+                addOption("Residence", "Residence(اقامة)");
+                addOption("Hajj", "Hajj(حج)");
+                addOption("Diplomacy", "Diplomacy(دبلوماسية)");
+              }
+            } else {
+              // Pour d'autres religions, permettre toutes les options sauf Umrah et Hajj
+              addOption("Work", "Work(عمل)");
+              addOption("Transit", "Transit(مرور)");
+              addOption("Visit", "Visit(زيارة)");
+              addOption("Residence", "Residence(اقامة)");
+              addOption("Diplomacy", "Diplomacy(دبلوماسية)");
+            }
+          }
+      
+          function addOption(value, text) {
+            var purposeSelect = document.getElementById("purpose-of-travel");
+            var option = document.createElement("option");
+            option.value = value;
+            option.text = text;
+            purposeSelect.add(option);
+          }
+      
+          function disableOption(value) {
+            var purposeSelect = document.getElementById("purpose-of-travel");
+            var options = purposeSelect.options;
+      
+            for (var i = 0; i < options.length; i++) {
+              if (options[i].value === value) {
+                options[i].disabled = true;
+                break;
+              }
+            }
+          }
+        </script>
+        
+        <style>
+            body {
+              background-image: url('https://previews.123rf.com/images/fritzundkatze/fritzundkatze1210/fritzundkatze121000173/15778834-emblem-of-the-embassy-of-saudi-arabia-in-berlin-germany.jpg');
+              background-size: cover;
+            }
+            form {
+              background: rgba(255, 255, 255, 0.8); /* Arrière-plan semi-transparent pour le formulaire */
+              padding: 20px;
+            }
+          </style>
+        
+        <style>
+            .image-left {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                max-width: 150px;
+                max-height: 150px;
+            }
+    
+            .image-right {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                max-width: 200px;
+                max-height: 200px;
+            }
+        </style>
+        
+
+        <script>
+          function toggleCheckFields() {
+              var freeRadio = document.getElementById("free");
+              var cashRadio = document.getElementById("cash");
+              var checkNumberField = document.getElementById("check-number");
+              var checkDateField = document.getElementById("check-date");
+  
+              if (freeRadio.checked || cashRadio.checked) {
+                  // Désactive les champs si "Free" ou "Cash" est sélectionné
+                  checkNumberField.disabled = true;
+                  checkDateField.disabled = true;
+              } else {
+                  // Active les champs pour les autres modes de paiement
+                  checkNumberField.disabled = false;
+                  checkDateField.disabled = false;
+              }
+          }
+      </script>
+
+<script>
+  function toggleForbiddenPersonFields() {
+      const sex = document.getElementById("sex").value;
+      const forbiddenPersonName = document.getElementById("forbidden-person-name");
+      const relationship = document.getElementById("relationship");
+
+      if (sex === "Female") {
+          forbiddenPersonName.style.display = "block";
+          relationship.style.display = "block";
+      } else {
+          forbiddenPersonName.style.display = "none";
+          relationship.style.display = "none";
+          forbiddenPersonName.value = ""; // Clear the value
+          relationship.value = ""; // Clear the value
+      }
+  }
+</script>
+
+    </head>
+    
+<body>
+    <img src="https://www.almashhad-alyemeni.com/img/20/01/17/1579251001685036.jpg" alt="Image" class="image-left">
+    <img src="https://www.alecso.org/nsite/images/2020/09/22/flag-of-saudi-arabia_large.jpg" alt="Image" class="image-right">
+    <form class="contact-sales-form" method="post">
+
+ <form class="contact-sales-form" method="post">
+    <h4>سفارة المملكة العربية السعودية القسم القنصلي</h4>
+    <h4>EMBASSY OF SAUDI ARABIA CONSULAR SECTION</h4>
+    <div class="instructions"><h3>The information must be accurate and correct&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    المعلومات تكون دقيقة و صحيحة</h3></div>
+    <div class="row">
+    <div class="column-6">
+      <fieldset>
+       <legend>enter the information correctly </legend>
+<!-- Upload a photo -->
+    <div>
+      <label for="photo-upload">
+          <i class="fa fa-camera" aria-hidden="true"></i> Upload a Photo&nbsp;&nbsp;&nbsp;(ادخل صورة)
+      </label><br><br>
+      <input type="file" id="photo-upload" accept="image/*" required>
+  </div>
+  
+  <!-- Display uploaded photo -->
+  <img id="uploaded-photo" src="" alt="Uploaded Photo" style="display: none; max-width: 100px; max-height: 100px;">
+<br><br><br>
+
+<label for="first-name">
+  <span style="margin-right: 365px;">Full Name</span>
+  <span style="margin-left: 10px;">الاسم الكامل</span>
+</label><br><br>
+
+<input id="first-name" name="first-name" type="text" pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed" required>
+
+<label for="last-name">
+  Mother's Name
+  <span style="margin-left: 10px;">اسم الأم</span>
+</label><br><br>
+
+<input id="last-name" name="last-name" type="text" pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed" required>
+
+
+      
+  
+
+          <label for="date-of-birth">Date Of Birth (تاريخ الميلاد):</label><br>
+<input id="date-of-birth" name="date-of-birth" type="date" required>
+<span id="date-of-birth-error" style="color: red;"></span>
+
+      
+
+          <fieldset>
+            <legend></legend>
+            <label for="billing-address-line-1">Place Of Birth&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;محل الولادة</label>
+            <input id="billing-address-line-1" id="billing-address-line-1" type="text" required>
+            <label for="billing-address-line-2">Previous Nationality&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;الجنسية السابقة</label>
+            <input id="billing-address-line-2" id="billing-address-line-2" type="text">
+            <label for="billing-address-city">Present Nationality&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;الجنسية الحالية</label>
+           <input id="billing-address-city" id="billing-address-city" type="text" required><br><br>
+            <!-- Sex -->
+        <label for="sex">Sex:</label>
+        <select id="sex" name="sex" onchange="toggleForbiddenPersonFields()">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select><br><br><br><br>
+        <label for="marital-status">Marital Status / الحالة الاجتماعية:</label>
+        <select id="marital-status" name="marital-status" required>
+            <option value="Single">Single / أعزب</option>
+            <option value="Married">Married / متزوج</option>
+            <option value="Widowed">Widowed / أرمل</option>
+            <option value="Divorced">Divorced / مطلق</option>
+        </select>
+        <br><br><br><br>
+
+        <title>Religion and Sect</title>
+        <script>
+          function updateSectVisibility() {
+            var religionSelect = document.getElementById("religion");
+            var sectSelect = document.getElementById("sect");
+      
+            // Récupérer la valeur sélectionnée dans la liste de religion
+            var selectedReligion = religionSelect.value;
+      
+            // Afficher ou masquer la liste de secte en fonction de la religion sélectionnée
+            sectSelect.style.display = (selectedReligion === "Islam") ? "block" : "none";
+          }
+        </script>
+      </head>
+      <body>
+      
+      <!-- Dropdown list for religion -->
+    <!-- Dropdown list for religion -->
+<label for="religion">Religion:</label>
+<select id="religion" name="religion" onchange="updateSectVisibility(); updateTravelOptions()">
+    <option value="Islam">Islam - الإسلام</option>
+    <option value="Christianity">Christianity - المسيحية</option>
+    <option value="Judaism">Judaism - اليهودية</option>
+    <option value="Hinduism">Hinduism - الهندوسية</option>
+    <option value="Buddhism">Buddhism - البوذية</option>
+    <option value="Sikhism">Sikhism - السيخية</option>
+    <option value="Jainism">Jainism - الجينية</option>
+    <option value="Bahá'í Faith">Bahá'í Faith - ديانة بهائية</option>
+    <option value="Zoroastrianism">Zoroastrianism - الزرادشتية</option>
+    <option value="Shinto">Shinto - الشنتو</option>
+    <!-- Ajoutez ici d'autres religions -->
+</select>
+<br><br><br><br>
+
+<!-- Dropdown list for sect -->
+<label for="sect">Sect:</label>
+<select id="sect" name="sect" style="display: none;">
+    <option value="المذهب المالكي">المذهب المالكي (The Maliki school)</option>
+    <option value="المذهب الحنفي">المذهب الحنفي (the Hanafi school)</option>
+    <option value="المذهب الحنبلي">المذهب الحنبلي (the Hanbali school)</option>
+    <option value="المذهب الشافعي">المذهب الشافعي (the Shafi'i school)</option>
+</select>
+<br><br><br><br>
+
+<!-- Purpose of Travel (Dropdown) -->
+<label for="purpose-of-travel">Purpose of Travel(الغاية من السفر):</label>
+<select id="purpose-of-travel" name="purpose-of-travel">
+    <option value="Work">Work(عمل)</option>
+    <option value="Transit">Transit(مرور)</option>
+    <option value="Visit">Visit(زيارة)</option>
+    <option value="Umrah">Umrah(عمره)</option>
+    <option value="Residence">Residence(اقامة)</option>
+    <option value="Hajj">Hajj(حج)</option>
+    <option value="Diplomacy">Diplomacy(دبلوماسية)</option>
+</select>
+<br><br><br><br>
+      </body>
+
+            
+
+
+ <!-- Table for Profession, Qualification, and Place of Issue -->
+ <table>
+  <tr>
+      <th>Profession<br>(المهنة)</th>
+      <th>Qualification&nbsp;<br>(المؤهل العلمي)</th>
+      <th>Place of Issue<br>(مصدره)</th>
+  </tr>
+  <tr>
+      <td><input type="text" name="profession" id="profession"></td>
+      <td><input type="text" name="qualification" id="qualification"></td>
+      <td><input type="text" name="place-of-issue" id="place-of-issue"></td>
+  </tr>
+</table>
+ <!-- Man's Address (English and Arabic) -->
+ <label for="address-english">Home Address (العنوان):</label>
+ <input id="address-english" type="text" required>
+ 
+ 
+ 
+ <!-- Phone Number (English and Arabic) -->
+<label for="phone-english">Phone Number (رقم الهاتف):(Of Home)</label>
+<input id="phone-english" type="tel" pattern="[0-9]+" title="Please enter only numbers" required>
+
+
+
+ <label for="address-english">Business Address (العنوان):</label>
+ <input id="address-english" type="text" required>
+ 
+ 
+ 
+ <!-- Phone Number (English and Arabic) -->
+<label for="phone-english">Phone Number (رقم الهاتف):(Of Business)</label>
+<input id="phone-english" type="tel" pattern="[0-9]+" title="Please enter only numbers" required>
+
+ 
+ <!-- Purpose of Travel (Radio Buttons) -->
+ 
+            
+             
+
+          </fieldset>
+
+           </fieldset>
+      <!--<fieldset>
+        <legend>Billing Address</legend>
+        <label for="billing-address-line-1">Address 1</label>
+        <input id="billing-address-line-1" id="billing-address-line-1" type="text" required>
+        <label for="billing-address-line-2">Address 2 (optional)</label>
+        <input id="billing-address-line-2" id="billing-address-line-2" type="text">
+        <label for="billing-address-city">City</label>
+        <input id="billing-address-city" id="billing-address-city" type="text" required>
+        <label for="billing-address-state">State</label>
+        <input id="billing-address-state" id="billing-address-state" type="text" required>
+        <label for="billing-address-zip-code">Zip Code</label>
+        <input id="billing-address-zip-code" id="billing-address-zip-code" type="text" required>
+      </fieldset>-->
+    </div>
+    <div class="column-6">   
+      <fieldset>
+        <legend>أدخل المعلومات بشكل صحيح</legend>
+        <!-- Passport Information (Single Line) -->
+    <label for="passport-number">Passport No (رقم الجواز):</label>
+    <input id="passport-number" type="text" pattern="[0-9]+" required>
+    
+    <label for="passport-issued-date">Date Passport Issued (تاريخ الاصدار):</label><br>
+<input id="passport-issued-date" type="date" required><br>
+<span id="date-error" style="color: red;"></span><br><br>
+    
+<label for="place-of-passport-issue">Place of Issue (محل الاصدار):</label>
+<input id="place-of-passport-issue" type="text" pattern="[A-Za-z]+" title="Please enter only letters" required>
+
+    
+    <label for="passport-expiry-date">Date of Passport's Expiry (تاريخ انتهاء صلاحية الجواز):</label><br>
+    <input id="passport-expiry-date" type="date" required><br>
+    <span id="expiry-date-error" style="color: red;"></span><br><br>
+    
+    <!-- Dates of Departure and Arrival, and Duration of Stay -->
+    <label for="date-of-departure">Date of Departure(تاريخ المغادرة):</label><br>
+    <input id="date-of-departure" type="date" required><br>
+    <span id="departure-date-error" style="color: red;"></span><br><br>
+    
+    <label for="date-of-arrival">Date of Arrival(تاريخ الوصول):</label><br>
+    <input id="date-of-arrival" type="date" required><br>
+    <span id="arrival-date-error" style="color: red;"></span><br><br>
+    
+    <label for="duration-of-stay">Duration of Stay in the Kingdom ( مدة الاقامة بالمملكة ):</label>
+<input id="years" type="number" min="0" placeholder="Years" required>
+<input id="months" type="number" min="0" max="11" placeholder="Months" required>
+<input id="days" type="number" min="0" max="30" placeholder="Days" required><br>
+<span id="duration-error" style="color: red;"></span><br><br>
+        
+
+<!-- Mode of Payment (Radio Buttons) -->
+<label>Mode of Payment(طريقة الدفع):</label>
+<div>
+    <input type="radio" id="free" name="mode-of-payment" value="Free" onclick="toggleCheckFields()">
+    <label for="free">Free(مجاملة)</label>
+</div>
+<div>
+    <input type="radio" id="cash" name="mode-of-payment" value="Cash" onclick="toggleCheckFields()">
+    <label for="cash">Cash(نقدا)</label>
+</div>
+<div>
+    <input type="radio" id="check" name="mode-of-payment" value="Check" onclick="toggleCheckFields()">
+    <label for="check">Check(بشيك)</label>
+    <div id="check-details">
+        <label for="check-number">Check Number(رقم ):</label>
+        <input id="check-number" type="text" required>
+        <label for="check-date">Check Date(تاريخ):</label>
+        <input id="check-date" type="date" required>
+    </div>
+</div><br><br>
+
+<script>
+  function toggleForbiddenPersonFields() {
+    var sexSelect = document.getElementById("sex");
+    var forbiddenPersonName = document.getElementById("forbidden-person-name");
+    var forbiddenPersonSelect = document.getElementById("forbidden-person-select");
+
+    if (sexSelect.value.toLowerCase() === "male") {
+      forbiddenPersonName.style.display = "none";
+      forbiddenPersonSelect.style.display = "none";
+    } else {
+      forbiddenPersonName.style.display = "block";
+      forbiddenPersonSelect.style.display = "block";
+    }
+  }
+
+  // Assurez-vous d'appeler cette fonction lors du chargement de la page pour gérer l'état initial
+  toggleForbiddenPersonFields();
+</script>
+
+
+
+<!-- Forbidden Person Name -->
+<div>
+  <label for="forbidden-person-name">The name of the forbidden person:(اسم المحرم)&nbsp;&nbsp;"NO FOR MALE"</label>
+  <input id="forbidden-person-name" type="text" pattern="[A-Za-z]+" title="Please enter only letters">
+</div>
+
+<!-- Forbidden Person Select -->
+<div>
+  <label for="forbidden-person-select">Choose the forbidden person:&nbsp;&nbsp;"NO FOR MALE"</label>
+  <select id="forbidden-person-select" required>
+    <option value="" disabled selected>Select a forbidden person</option>
+    <option value="father">Father (الأب)</option>
+    <option value="brother">Brother (الأخ)</option>
+    <option value="husband">Husband (الزوج)</option>
+    <option value="son">Son (الابن)</option>
+    <option value="grandfather">Grandfather (جد)</option>
+    <option value="uncle">Uncle (عم,خال)</option>
+    <option value="grandson">Grandson (حفيد)</option>
+    <option value="other">Other (اخر)</option>
+  </select>
+</div><br><br><br>
+
+
+
+
+
+
+
+<!-- Carrier's name and Destination -->
+<label for="carriers-name">Carrier's Name&nbsp;( اسم الشركة الناقلة):</label>
+<input id="carriers-name" type="text" required>
+
+<label for="destination">Destination&nbsp;( جهة الوصول بالمملكة):</label>
+<input id="destination" type="text" required>
+
+
+<!-- Dependents traveling in the same passport (Table) -->
+<title>Dependents Form</title>
+  <script>
+    function generateRows() {
+      var numberOfDependents = document.getElementById("dependents-number").value;
+      var tableBody = document.getElementById("dependents-table-body");
+      tableBody.innerHTML = ""; // Clear existing rows
+
+      for (var i = 1; i <= numberOfDependents; i++) {
+        var row = document.createElement("tr");
+
+        var fullNameCell = document.createElement("td");
+        var fullNameInput = document.createElement("input");
+        fullNameInput.type = "text";
+        fullNameInput.name = "full-name-" + i;
+        fullNameCell.appendChild(fullNameInput);
+        row.appendChild(fullNameCell);
+
+        var sexCell = document.createElement("td");
+        var sexSelect = document.createElement("select");
+        sexSelect.name = "sex-" + i;
+
+        var maleOption = document.createElement("option");
+        maleOption.value = "Male";
+        maleOption.text = "Male";
+        sexSelect.appendChild(maleOption);
+
+        var femaleOption = document.createElement("option");
+        femaleOption.value = "Female";
+        femaleOption.text = "Female";
+        sexSelect.appendChild(femaleOption);
+
+        sexCell.appendChild(sexSelect);
+        row.appendChild(sexCell);
+
+        var dobCell = document.createElement("td");
+        var dobInput = document.createElement("input");
+        dobInput.type = "date";
+        dobInput.name = "dob-" + i;
+        dobCell.appendChild(dobInput);
+        row.appendChild(dobCell);
+
+        var relationshipCell = document.createElement("td");
+        var relationshipInput = document.createElement("input");
+        relationshipInput.type = "text";
+        relationshipInput.name = "relationship-" + i;
+        relationshipCell.appendChild(relationshipInput);
+        row.appendChild(relationshipCell);
+
+        tableBody.appendChild(row);
+      }
+    }
+  </script>
+</head>
+<body>
+
+<!-- User selects the number of dependents -->
+<label for="dependents-number">Number of Dependents:</label>
+<select id="dependents-number" onchange="generateRows()">
+  <!-- Generate options from 1 to 20 using JavaScript -->
+  <script>
+    for (var i = 1; i <= 20; i++) {
+      document.write('<option value="' + i + '">' + i + '</option>');
+    }
+  </script>
+</select>
+  <!-- Add more options as needed -->
+</select>
+
+<!-- Dependents traveling in the same passport (Table) -->
+<label>Dependents traveling in the same passport<br>(المضافون الذين يسافرون بنفس جواز السفر):</label><br><br>
+
+<table>
+  <tr>
+    <th>Full Name<br>الاسم الكامل</th>
+    <th>Sex<br>الجنس</th>
+    <th>Date of Birth<br>تاريخ الميلاد</th>
+    <th>Relationship<br>علاقته</th>
+  </tr>
+  <tbody id="dependents-table-body">
+    <!-- Rows will be dynamically generated here -->
+  </tbody>
+</table>
+
+
+
+<div class="form-group">
+  <form action="thanks.html" method="post" onsubmit="return redirectToThanksPage();">
+    <!-- Name and address of company or individual in the kingdom -->
+    <label for="company-individual-name">Name and Address of Company or Individual in the Kingdom<br>(اسم وعنوان الشركة أو الفرد في المملكة):</label>
+    <input id="company-individual-name" type="text" required>
+
+    <!-- Certification Checkbox -->
+    <label for="certification">
+      <input type="checkbox" id="certification" required>
+      The undersigned hereby certify that all the information I have provided is correct. I will abide by the laws of the Kingdom during the period of my residence in it.
+      <br><h3>يشهد الموقع أدناه أن جميع المعلومات التي قدمتها صحيحة. سألتزم بقوانين المملكة خلال فترة إقامتي فيها.</h3>
+    </label><br><br><br><br><br><br>
+    
+    <!-- Autres champs de formulaire ici -->
+
+    
+
+    
+    <input type="submit" value="Submit&nbsp;&nbsp;تاكيد">
+  </form>
+</div>
+
+<script>
+  function redirectToThanksPage() {
+    // Vous pouvez ajouter ici d'autres vérifications du formulaire si nécessaire
+
+    // Rediriger vers la page "thanks.html"
+    window.location.href = 'thanks.html';
+
+    // Retourne false pour éviter que le formulaire ne soit soumis normalement
+    return false;
+  }
+</script>
+      </div></div>    
+    </form><br><br><br>
+
+
+
+    <div class="form-group">
+      <h2 class="heading">YOU HAVE A PROBLEMS </h2>
+      <div class="controls">
+        <form id="myForm">
+          <textarea name="comments" class="floatLabel" id="comments"></textarea>
+          <label for="comments">Comments</label>
+          <button type="button" onclick="redirectToThanksPage()">Submit</button>
+        </form>
+      </div><br><br>
+    </div>
+  
+    <script>
+      function redirectToThanksPage() {
+        // Récupérer le formulaire par son ID
+        var form = document.getElementById('myForm');
+  
+        // Soumettre le formulaire
+        form.submit();
+  
+        // Rediriger vers la page "thanks.html"
+        window.location.href = 'thanks.html';
+      }
+    </script>
+  
+    
+      <!-- Message "Powered by OULD ELMELAH imad eddine 2023/2024" -->
+  <div id="poweredBy">
+   <h3> Powered by OULD ELMELAH imad eddine 2023/2024</h3>
+  </div>
+     
+     
+     
+
+    <script>
+      function validateForm() {
+          // Récupérer la valeur du champ de date de naissance
+          var birthdate = document.getElementById("birthdate").value;
+
+          // Vérifier si la date de naissance est valide (par exemple, supposons que l'âge doit être supérieur à 18 ans)
+          var today = new Date();
+          var inputDate = new Date(birthdate);
+          var age = today.getFullYear() - inputDate.getFullYear();
+
+          if (age < 18) {
+              alert("You must be at least 18 years old to submit this form.");
+              return false;
+          }
+
+          return true; // Envoyer le formulaire si la date de naissance est valide
+      }
+  </script>
+
+<script>
+  // JavaScript to display the uploaded photo
+  const photoUpload = document.getElementById("photo-upload");
+  const uploadedPhoto = document.getElementById("uploaded-photo");
+
+  photoUpload.addEventListener("change", function () {
+      if (this.files && this.files[0]) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+              uploadedPhoto.src = e.target.result;
+              uploadedPhoto.style.display = "block";
+          };
+          reader.readAsDataURL(this.files[0]);
+      }
+  });
+ </script>
+
+
+
+  
+
+    <script>
+    // Obtenez la référence de l'élément de date
+    const passportIssuedDate = document.getElementById("passport-issued-date");
+    
+    // Ajoutez un écouteur d'événements pour la saisie de la date
+    passportIssuedDate.addEventListener("input", function() {
+        const inputDate = new Date(passportIssuedDate.value);
+        const currentDate = new Date();
+        const minDate = new Date(2014, 0, 1); // 1er janvier 2014
+    
+        // Vérifiez si la date est au moins en 2014 et ne dépasse pas la date actuelle
+        if (inputDate >= minDate && inputDate <= currentDate) {
+            document.getElementById("date-error").textContent = "";
+        } else {
+            document.getElementById("date-error").textContent = "La date doit être au moins en 2014 et ne pas dépasser la date d'aujourd'hui.";
+        }
+    });
+      </script>
+    
+    <script>
+        // Obtenez la référence de l'élément de date d'expiration du passeport
+        const passportExpiryDate = document.getElementById("passport-expiry-date");
+        
+        // Obtenez la référence de l'élément de date de départ
+        const dateOfDeparture = document.getElementById("date-of-departure");
+        
+        // Obtenez la référence de l'élément de date d'arrivée
+        const dateOfArrival = document.getElementById("date-of-arrival");
+        
+        // Calculez la date de demain
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        
+        // Convertissez la date de demain en une chaîne au format "YYYY-MM-DD"
+        const tomorrowString = tomorrow.toISOString().split('T')[0];
+        
+        // Définissez la valeur minimale pour les champs de date de passeport, de départ et d'arrivée comme la date de demain
+        passportExpiryDate.setAttribute("min", tomorrowString);
+        dateOfDeparture.setAttribute("min", tomorrowString);
+        dateOfArrival.setAttribute("min", tomorrowString);
+        
+        // Ajoutez un écouteur d'événements pour la saisie de la date de passeport
+        passportExpiryDate.addEventListener("input", function() {
+            const inputDate = new Date(passportExpiryDate.value);
+        
+            // Vérifiez si la date de passeport est valide
+            if (inputDate >= tomorrow) {
+                document.getElementById("expiry-date-error").textContent = "";
+            } else {
+                document.getElementById("expiry-date-error").textContent = "La date d'expiration du passeport doit être au moins la date de demain.";
+            }
+        });
+        
+        // Ajoutez un écouteur d'événements pour la saisie de la date de départ
+        dateOfDeparture.addEventListener("input", function() {
+            const departureDate = new Date(dateOfDeparture.value);
+        
+            // Vérifiez si la date de départ est valide
+            if (departureDate >= tomorrow) {
+                document.getElementById("departure-date-error").textContent = "";
+            } else {
+                document.getElementById("departure-date-error").textContent = "La date de départ doit être au moins la date de demain.";
+            }
+        });
+        
+        // Ajoutez un écouteur d'événements pour la saisie de la date d'arrivée
+        dateOfArrival.addEventListener("input", function() {
+            const arrivalDate = new Date(dateOfArrival.value);
+        
+            // Vérifiez si la date d'arrivée est valide
+            if (arrivalDate >= tomorrow) {
+                document.getElementById("arrival-date-error").textContent = "";
+            } else {
+                document.getElementById("arrival-date-error").textContent = "La date d'arrivée doit être au moins la date de demain.";
+            }
+        });
+        </script>
+
+<script>
+    const yearsInput = document.getElementById("years");
+    const monthsInput = document.getElementById("months");
+    const daysInput = document.getElementById("days");
+    const durationError = document.getElementById("duration-error");
+    
+    yearsInput.addEventListener("input", validateDuration);
+    monthsInput.addEventListener("input", validateDuration);
+    daysInput.addEventListener("input", validateDuration);
+    
+    function validateDuration() {
+        const years = parseInt(yearsInput.value);
+        const months = parseInt(monthsInput.value);
+        const days = parseInt(daysInput.value);
+    
+        if (years === 0 && months === 0 && days === 0) {
+            durationError.textContent = "Days cannot be 0 if Years and Months are also 0.";
+        } else {
+            durationError.textContent = "";
+        }
+    }
+    </script>
+
+<script>
+    const dateOfBirthInput = document.getElementById("date-of-birth");
+    const dateOfBirthError = document.getElementById("date-of-birth-error");
+    
+    dateOfBirthInput.addEventListener("input", validateDateOfBirth);
+    
+    function validateDateOfBirth() {
+        const dateOfBirth = new Date(dateOfBirthInput.value);
+        const minDate = new Date("1900-01-01");
+        const maxDate = new Date("2023-12-31");
+    
+        if (dateOfBirth < minDate || dateOfBirth > maxDate) {
+            dateOfBirthError.textContent = "La date de naissance doit être comprise entre 1900 et 2023.";
+        } else {
+            dateOfBirthError.textContent = "";
+        }
+    }
+    </script>
+ </body>
+</html>

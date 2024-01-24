@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Archivo+Black&display=swap');
+/* * ----- Reset ----- */
+ *, *:after, *:before {
+	 margin: 0;
+	 padding: 0;
+	 -webkit-box-sizing: border-box;
+	 -moz-box-sizing: border-box;
+	 box-sizing: border-box;
+}
+/* * ----- Colors & Other Layout Variables ----- */
+/* * ----- Google Fonts & Typography ----- */
+ h4 {
+	 font-family: 'Archivo Black', serif;
+	 font-size: 35px;
+	 line-height: 28px;
+	 color: #1b1b1c;
+	 text-transform: uppercase;
+	 text-align: center;
+	 padding: 1em;
+}
+/* * ----- General Styles ----- */
+ body {
+	 background-color: #fff;
+	 font-family: 'Montserrat', serif;
+	 font-size: 1em;
+	 color: #232730;
+	 width: 85%;
+	 margin: 0 auto;
+}
+/* * ----- Simple Grid/Columns ----- */
+ [class*='column-'] {
+	 float: left;
+	 padding: 1em;
+	 min-height: 1px;
+}
+ .row:before, .row:after {
+	 content: " ";
+	 display: table;
+}
+ .row:after {
+	 clear: both;
+}
+ @media only screen and (min-width: 75em) {
+	 .column-6 {
+		 width: 50%;
+	}
+}
+ @media only screen and (max-width: 75em) and (min-width: 55em) {
+	 .column-6 {
+		 width: 50%;
+	}
+}
+ @media only screen and (max-width: 55em) {
+	 .column-6 {
+		 width: 100%;
+		 float: none;
+	}
+}
+/* * ----- All Forms ----- */
+ fieldset {
+	 border-width: 0;
+	 border-color: #f3f3f3;
+	 margin: 2em 1em;
+}
+ legend {
+	 text-align: center;
+	 margin-bottom: 2em;
+	 text-transform: uppercase;
+}
+ form input[type="text"], form input[type="tel"] {
+	 padding: 1em;
+	 margin-bottom: 2em;
+	 display: block;
+	 border: none;
+	 border-bottom: 2px solid #1b1b1c;
+	 width: 100%;
+}
+ form input[type="text"]:hover, form input[type="tel"]:hover {
+	 border: none;
+	 border-bottom: 2px solid #64008f;
+	 background: #f3f3f3;
+}
+ form input[type="submit"] {
+	 display: block;
+	 margin: auto;
+	 padding: 2em 3em;
+	 font-family: 'Archivo Black', serif;
+	 background-image: linear-gradient(45deg, #64008f, #ad4baa);
+	 color: #fff;
+	 text-transform: uppercase;
+	 border: none;
+	 width: 80%;
+}
+ form input[type="submit"]:hover {
+	 background: #1b1b1c;
+}
+ form label {
+	 font-family: 'Archivo Black', serif;
+	 text-transform: uppercase;
+	 color: #1b1b1c;
+}
+/* * ----- Unique Forms ----- */
+ .contact-sales-form {
+	 -webkit-box-shadow: 0px 3px 6px -2px rgba(0, 0, 0, 0.7);
+	 -moz-box-shadow: 0px 3px 6px -2px rgba(0, 0, 0, 0.7);
+	 -o-box-shadow: 0px 3px 6px -2px rgba(0, 0, 0, 0.7);
+	 -ms-box-shadow: 0px 3px 6px -2px rgba(0, 0, 0, 0.7);
+	 box-shadow: 0px 3px 6px -2px rgba(0, 0, 0, 0.7);
+	 padding: 2em;
+}
+ .contact-sales-form .instructions {
+	 text-align: center;
+	 padding: 2em 1em;
+	 background: #f3f3f3;
+}
+ /* Style pour l'élément Photo */
+#uploaded-photo {
+    display: none;
+    max-width: 100px;
+    max-height: 100px;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+}
+
+/* Style pour les champs Date */
+input[type="date"] {
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 4px;
+}
